@@ -1,0 +1,314 @@
+<<script type="text/javascript">
+ import java.time.YearMonth;
+ 
+	request.setCharacterEncoding("windows-1255");
+	response.setCharacterEncoding("windows-1255");
+
+</script>
+<html>
+   <head>
+	<title>׳˜׳•׳₪׳¡ ׳”׳¨׳©׳�׳”</title>
+	<meta http-equiv="Content-Type" content="text/html;charser=windows-1255">
+	<script language = "JavaScript" >
+	   var formErrors ;
+
+	    function check()
+       {
+			formErrors = '' ;
+			check_fname();
+			check_em() ;
+			check_lname() ;
+			check_pass() ;
+			check_pass2() ;
+			if (formErrors.length == 0)  
+				{
+				alert("׳”׳�׳©׳×׳�׳© ׳ ׳¨׳©׳� ׳‘׳”׳¦׳�׳—׳”!");
+				return true;
+				}
+			else
+				{
+				alert(formErrors) ;
+				window.document.frm.fname.focus() ;
+				return false;
+				}
+	    } // end of function check()
+		
+
+		function check_fname() 
+       {
+ 	        var fname2check ;
+ 	        fname2check = window.document.frm.fname.value ;
+ 	        
+ 	        var ageLetters="1234567890";
+ 	        var cou=0;
+			for (var i=0; i<document.frm.fname.value.length; i++)
+			{
+				var letter=document.frm.fname.value.charAt(i);
+				if (ageLetters.indexOf(letter)!=-1)
+				{
+				cou++;
+				}
+			}
+			
+			
+ 	       
+			
+			if (cou>0)
+			{
+			formErrors += '׳©׳’׳™׳�׳”: ׳‘׳©׳� ׳”׳₪׳¨׳˜׳™ ׳�׳¡׳•׳¨ ׳�׳”׳™׳•׳× ׳�׳¡׳₪׳¨׳™׳�' + '\n' ;
+			}
+	        
+ 	        if (fname2check.length < 2) 
+				{ 		     
+				formErrors += '׳©׳’׳™׳�׳”: ׳©׳� ׳₪׳¨׳˜׳™ ׳§׳¦׳¨ ׳�׳™׳“׳™' + '\n' ;	
+				}
+ 	        if (fname2check.length > 20) 
+ 	        	{
+ 	        	formErrors += '׳©׳’׳™׳�׳”: ׳©׳� ׳₪׳¨׳˜׳™ ׳�׳¨׳•׳� ׳�׳™׳“׳™' + '\n' ;
+ 	        	}
+	    }
+		 function check_em() 
+	        {
+   	        var eMail2check;
+   	        email2check = window.document.frm.e_mail.value ;
+   	        if (email2check.length > 0) 
+				{
+   	        	  var shtrudel=email2check.indexOf("@",1);    // the function looks for a '@' in the string
+   	  		      if(shtrudel==-1)
+   	  		      {
+   	  		          formErrors += '׳©׳’׳™׳�׳”: ׳”-@ ׳�׳� ׳‘׳�׳§׳•׳� ׳�׳• ׳—׳¡׳¨' + '\n' ;
+   	  		      }
+   	  		      else if(email2check.split("@").length>2)    // the function splits the string to 2 arrays, if it found more than 1 '@"  it will alert.
+   	  		      {
+   	  		          formErrors += '׳©׳’׳™׳�׳”: ׳™׳© ׳™׳•׳×׳¨ ׳�-@ ׳�׳—׳“' + '\n' ;
+   	  		      }
+				}
+				else
+				{
+					  formErrors += '׳©׳’׳™׳�׳”: ׳”׳›׳ ׳¡ ׳“׳•׳�׳¨ ׳�׳�׳§׳˜׳¨׳•׳ ׳™' + '\n' ;
+				}
+   	        var dot=email2check.indexOf(".");
+   	    	if(dot != -1 && dot > shtrudel+3 && dot < email2check.length-2)   
+   			{}
+   		    else
+   		    {
+   		    	formErrors += '׳©׳’׳™׳�׳”: ׳”׳ ׳§׳•׳“׳” ׳‘׳�׳™׳�׳™׳™׳� ׳�׳� ׳‘׳�׳§׳•׳� ׳�׳• ׳—׳¡׳¨׳”' + '\n' ;
+   		    }
+
+   	     }
+		 function check_lname() 
+	        {
+   	        var lname2check ;
+   	        lname2check = window.document.frm.lname.value ;
+
+   	        var ageLetters="1234567890";
+ 	        var cou=0;
+				for (var i=0; i<document.frm.lname.value.length; i++)
+				{
+					var letter=document.frm.lname.value.charAt(i);
+					if (ageLetters.indexOf(letter)!=-1)
+					{
+					cou++;
+					}
+				}
+				
+				
+				
+				if (cou>0)
+				{
+				formErrors += '׳©׳’׳™׳�׳”: ׳‘׳©׳� ׳”׳�׳©׳₪׳—׳” ׳�׳¡׳•׳¨ ׳�׳”׳™׳•׳× ׳�׳¡׳₪׳¨׳™׳�' + '\n' ;
+				}
+   	        
+   	        if (lname2check.length < 2) 
+					{ 		     
+					formErrors += '׳©׳’׳™׳�׳”: ׳©׳� ׳�׳©׳₪׳—׳” ׳§׳¦׳¨ ׳�׳™׳“׳™' + '\n' ;
+					}	
+   	        if (lname2check.length > 20) 
+		 	    	{ 		     
+			     	formErrors += '׳©׳’׳™׳�׳”: ׳©׳� ׳�׳©׳₪׳—׳” ׳�׳¨׳•׳� ׳�׳™׳“׳™' + '\n' ;
+				    }
+ 	    	}
+
+			function check_pass() 
+	        {
+   	        var pass2check,pass2check2 ;
+   	        pass2check = window.document.frm.password.value ;
+   	        pass2check2 = document.frm.repeat_password.value ;
+   	       		 if (pass2check.length < 4) 
+					{ 		     
+						formErrors += '׳©׳’׳™׳�׳”: ׳¡׳™׳¡׳�׳� ׳§׳¦׳¨׳” ׳�׳™׳“׳™' + '\n' ;	
+					}
+   	       		 if (pass2check.length > 20) 
+   	        		{
+   	        			formErrors += '׳©׳’׳™׳�׳”: ׳¡׳™׳¡׳�׳� ׳�׳¨׳•׳›׳” ׳�׳™׳“׳™' + '\n' ;
+   	        		}
+ 	    	}
+			function check_pass2() 
+			{
+				if(window.document.frm.password.value!=window.document.frm.repeat_password.value)
+	        		{
+	        			formErrors += '׳©׳’׳™׳�׳”: ׳”׳¡׳™׳¡׳�׳� ׳�׳� ׳©׳•׳•׳” ׳�׳¡׳™׳¡׳�׳� ׳”׳—׳•׳–׳¨׳×' + '\n' ;
+	       			}
+			}
+			
+		</script>
+		
+		<style>
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: black;
+}
+
+input[type=reset]:hover {
+  background-color:black;
+}
+
+input[type=reset] {
+  width: 50%;
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div {
+  border-radius: 5px;
+  background-color:darkgray;
+  padding: 12px;
+}
+</style>
+   </head>
+
+   <body text="black" bgcolor="darkgray">
+  		<script type="text/javascript">
+	 		if(session.getAttribute("counted")== null)
+	 			session.setAttribute("counted", "none");
+	 		if(application.getAttribute("siteCounter")==null)
+	 			application.setAttribute("siteCounter", 0);
+	 		if(session.getAttribute("counted")!= null && session.getAttribute("counted")== "none")
+	 			{
+	 				Integer siteCounter =(Integer)application.getAttribute("siteCounter", siteCounter);
+	 				siteCounter+=1;
+	 				application.setAttribute("siteCounter", siteCounter);
+	 				application.setAttribute("counted", "exist");
+	 			}
+
+
+  		 </script>
+      
+	
+<h2>Application form to fitness website</h2>
+<p>When you will sign you will get training programs</p>
+ <div>
+
+	<form name="frm" 
+	method="get"
+	 action="insertIntoDT11.jsp"  
+	 onsubmit="return check();" >
+			
+	     <label for="fname">First Name</label>
+  <br></br>
+    <input type="text" name="fname" />
+    <br></br>
+  <label for="lname">Last Name</label>
+  <br></br>
+    <input type="text" name="lname" />
+    <br></br>
+     <label for="e_mail">e_mail</label>
+     <br></br>
+    <input type="text" name="e_mail" />
+    <br></br>
+    <label for="bday">Birthday</label>
+    <br></br>
+		 <input type="number" name="day" maxlength="31" id="amount"> 
+	 <br></br>
+		 <input type="number" name="month" maxlength="12" id="amount">
+	<br></br>
+	<select name="year">
+		<script language="javascript">
+		     for (var i=new Date().getFullYear();i>=(new Date().getFullYear())-120;i--)
+		    	 {
+		    	 if (i==2000)
+					  document.write("<option  value='"+i+"' selected >"+i+"</option>");
+		    	 else
+		   			  document.write("<option  value='"+i+"' >"+i+"</option>");
+		    	 }
+		    	</script>  
+	 </select>
+	 <br></br>
+    <label for="male">Male</label>
+    <br></br>
+    <input type="radio" value="male" name="gender" />
+    <br></br>
+    <label for="female">Female</label>
+    <br></br>
+    <input type="radio" value="female" name="gender" checked />
+    <br></br>
+  <label for="password">Password</label>
+  <br></br>
+    <input type="password" maxlength="10" size="20" name="password" />
+    <br></br>
+    <label for="Repeat Password">Repeat Password</label>
+    <br></br>
+    <input type="password" maxlength="10" size="20" name="repeat_password" />
+    <br></br>
+    <label for="Years of Training">Years of Training</label>
+    <br></br>
+    <select name="yot">
+	<option value="1" >0</option>
+	    <option value="2">1</option>
+	<option value="3">2 </option>
+	<option value="4">3</option>
+	 </select>
+	 <br></br>
+       <br/>
+	   &nbsp;
+       <input type="reset" value="reset" />
+	   <input type="submit" value="submit" />
+  </form>
+  </div>
+  </body>
+</html>

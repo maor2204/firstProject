@@ -1,0 +1,184 @@
+<html>
+   <head>
+	<title>טופס התחברות</title>
+	<script>
+	var formErrors =''
+	function check2()
+	{
+		check_pass() ;
+		check_em() ;
+		if (formErrors.length == 0)  
+		{
+		alert("המשתמש נכנס!");
+		return true;
+		}
+	else
+		{
+		alert(formErrors) ;
+		return false;
+		}
+	}
+		 function check_em() 
+	        {
+	        var email2check;
+	        email2check = window.document.form.email1.value ;
+	        if (email2check.length > 0) 
+				{
+	        	  var shtrudel=email2check.indexOf("@",1);    // the function looks for a '@' in the string
+	  		      if(shtrudel==-1)
+	  		      {
+	  		          formErrors += 'שגיאה: ה-@ לא במקום או חסר' + '\n' ;
+	  		      }
+	  		      else if(email2check.split("@").length>2)    // the function splits the string to 2 arrays, if it found more than 1 '@"  it will alert.
+	  		      {
+	  		          formErrors += 'שגיאה: יש יותר מ-@ אחד' + '\n' ;
+	  		      }
+				}
+				else
+				{
+					  formErrors += 'שגיאה: הכנס דואר אלקטרוני' + '\n' ;
+				}
+	        var dot=email2check.indexOf(".");
+	    	if(dot != -1 && dot > shtrudel+3 && dot < email2check.length-2)   
+			{}
+		    else
+		    {
+		    	formErrors += 'שגיאה: הנקודה באימייל לא במקום או חסרה' + '\n' ;
+		    }
+
+	     }
+		 function check_pass() 
+	        {
+	        var pass2check ;
+	        pass2check = window.document.form.password1.value ;
+	       		 if (pass2check.length < 6) 
+					{ 		     
+						formErrors += 'שגיאה: סיסמא קצרה מידי' + '\n' ;	
+					}
+	       		 if (pass2check.length > 20) 
+	        		{
+	        			formErrors += 'שגיאה: סיסמא ארוכה מידי' + '\n' ;
+	        		}
+	    	}
+		 function setCookie(cname,cvalue,exdays) {
+			  var d = new Date();
+			  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			  var expires = "expires=" + d.toGMTString();
+			  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+		 function checkCookie() {
+			  var user=getCookie("username");
+			  if (user != "") {
+			    alert("Welcome back" + user + " to our website");
+			  } else {
+			     user = prompt("Please enter your name:","");
+			     if (user != "" && user != null) {
+			       setCookie("username", user, 30);
+			     }
+			  }
+			}
+	</script>
+	<style>
+	input[type=text], select {
+  width: 50%;
+  padding: 6px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 50%;
+  padding: 6px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: black;
+}
+
+input[type=reset]:hover {
+  background-color:black;
+}
+
+input[type=reset] {
+  width: 50%;
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div {
+  border-radius: 5px;
+  background-color:darkgray;
+  padding: 20px;
+}
+	</style>
+	
+   </head>
+
+   <body text="black" bgcolor="darkgray" border = "1" >
+    <script type="text/javascript">
+	 		if(session.getAttribute("counted")== null)
+	 			session.setAttribute("counted", "none");
+	 		system.out.println(session.getAttribute("counted"));
+	 		if(application.getAttribute("siteCounter")==null)
+	 			application.setAttribute("siteCounter", 0);
+	 		system.out.println(application.getAttribute("siteCounter"));
+
+	 		if(session.getAttribute("counted")!= null && session.getAttribute("counted")== "none")
+	 			{
+	 				Integer siteCounter =(Integer)application.getAttribute("siteCounter", siteCounter);
+	 				siteCounter+=1;
+	 				application.setAttribute("siteCounter", siteCounter);
+	 				session.setAttribute("counted", "exist");
+	 			}
+
+
+  		 </script>
+      <center>
+	<h3>טופס התחברות</h3>
+<div align="left">
+	<form name="form" 
+	method="get" 
+	onSubmit="return check2(); , setCookie(); , checkCookie();"
+	action="page4-home-page-bystatus-db.jsp" 
+	 > 
+    		<label for="e_mail">e_mail</label>
+    		<br></br>
+    		<input type="text" name="email1" />
+    		<br></br>
+    		<label for="password">Password</label>
+    		<br></br>
+    		<input type="password" minlength="6" maxlength="10" size="10" name="password1" />
+    		<br></br>
+    		<input type="reset" value="reset" />
+    		<br></br>
+    		<input type="submit" value="submit" />
+       </form>
+       </div>
+       <a href="newindex.jsp">דף הבית</a>  
+     </center>
+   </body>
+</html>

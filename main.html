@@ -1,0 +1,47 @@
+<html>
+   <head>
+	<title>דף הבית</title>
+   </head>
+
+   <body border = "1" background="images/mainbg.jpg">
+    <script type="text/javascript">
+	 		if(session.getAttribute("counted")== null)
+	 			session.setAttribute("counted", "none");
+	 		if(application.getAttribute("siteCounter")==null)
+	 			application.setAttribute("siteCounter", 0);
+	 		if(session.getAttribute("counted")!= null && session.getAttribute("counted")== "none")
+	 			{
+	 				Integer siteCounter =(Integer)application.getAttribute("siteCounter", siteCounter);
+	 				siteCounter+=1;
+	 				application.setAttribute("siteCounter", siteCounter);
+	 				application.setAttribute("counted", "exist");
+	 			}
+
+
+  		 </script>
+      	<center>
+	<h1 color="white">דף הבית</h1>
+	</center>
+	   <table  bgcolor="black" border="4" height="20%" width="10%">  
+	       <tr>
+		<td>
+		<a href="main.html">דף הבית</a>
+		</td>
+	      </tr>
+  	      <tr>
+		<td>
+		<a href="form.html">טופס הרשמה</a>
+		</td>
+	      </tr>
+ 	      <tr>
+		<td>
+    		<a href="form2.html">טופס התחברות</a>
+		</td>
+	      </tr>
+	      <tr>
+    		<td><a href="picture.html">לגלריה</a></td>
+	      </tr>
+  	      
+
+	</table>
+</html>
